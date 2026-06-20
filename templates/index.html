@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Password Strength Checker</title>
+
+  <!-- Font Awesome (eye icon) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Password Strength Checker</h1>
+
+    <form method="POST">
+
+      <div class="password-wrapper">
+        <input
+          type="password"
+          id="myInput"
+          name="password"
+          placeholder="Enter password"
+          required
+        >
+
+        <span class="eye" onclick="myFunction()">
+          <i class="fa-solid fa-eye"></i>
+        </span>
+      </div>
+
+      <button type="submit">Check Strength</button>
+    </form>
+
+    {% if result %}
+      <p class="result">{{ result.remarks }}</p>
+    {% endif %}
+
+  </div>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
