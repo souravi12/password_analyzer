@@ -19,7 +19,9 @@
 <body>
   <div class="container">
 
+    <div class="icon-badge"><i class="fa-solid fa-lock"></i></div>
     <h1>Password Strength Checker</h1>
+    <p class="subtitle">See how strong your password is, instantly.</p>
 
     <form method="POST">
 
@@ -30,12 +32,30 @@
           name="password"
           placeholder="Enter password"
           required
+          autocomplete="new-password"
         >
 
         <span class="eye" onclick="myFunction()">
           <i class="fa-solid fa-eye"></i>
         </span>
       </div>
+
+      <div class="strength-meter">
+        <div class="meter-track">
+          <div class="meter-fill" id="meterFill"></div>
+        </div>
+        <div class="meter-label">
+          <span>Strength</span>
+          <span class="meter-text" id="meterText">Enter a password</span>
+        </div>
+      </div>
+
+      <ul class="checklist">
+        <li id="check-length"><span class="dot"></span> At least 8 characters</li>
+        <li id="check-upper"><span class="dot"></span> Upper &amp; lowercase letters</li>
+        <li id="check-number"><span class="dot"></span> At least one number</li>
+        <li id="check-symbol"><span class="dot"></span> At least one symbol</li>
+      </ul>
 
       <button type="submit">Check Strength</button>
     </form>
